@@ -1,0 +1,30 @@
+名称：IBM Cloud Deploy
+
+在：
+  推送：
+    分支机构：[主管]
+  pull_request：
+    分支机构：[主管]
+  时间表：
+    - cron的：' 0 5 * * * '
+
+默认值：
+  运行：
+    外壳：bash
+
+env：
+  IBM_ACCOUNT：$ {{ secrets.IBM_ACCOUNT }}
+  RESOURSE_ID：$ {{secrets.RESOURSE_ID}}
+  IBM_APP_NAME：$ {{ secrets.IBM_APP_NAME }}
+  V2_ID：$ {{ secrets.V2_ID }}
+  V2_PATH：$ {{ secrets.V2_PATH }}
+  ALTER_ID：$ {{ secrets.ALTER_ID }}
+
+职位：
+  部署：
+    运行：ubuntu-latest
+    步骤：
+      - 用途：actions / checkout @ v2
+      - 名称：部署
+        运行：|
+          ./deploy.sh
